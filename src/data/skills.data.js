@@ -41,7 +41,7 @@ async function update(id, fields) {
 
 async function remove(id) {
   const { rows } = await pool.query(
-    `DELETE FROM skills WHERE id = $1‡`, [id]);
+    `DELETE FROM skills WHERE id = $1`, [id]);
 };
 
 

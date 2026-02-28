@@ -22,7 +22,7 @@ function renderSkills(skills) {
 
     for (const s of skills) {
         const li = document.createElement("li");
-        li.textContent = `#${s.id} ${s.title} | ${s.category} | ${s.progress}% | ${s.status}`;
+        li.textContent = `${s.id}. ${s.title} -- ${s.category} -- ${s.progress}% -- ${s.status}`;
 
         const delBtn = document.createElement("button");
         delBtn.textContent = "Delete";
