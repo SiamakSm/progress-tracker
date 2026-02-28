@@ -21,4 +21,32 @@ async function create({ title, category, progress, status }) {
   return rows[0];
 }
 
-module.exports = { getAll, create };
+
+async function update(id, fields) {
+  const { title, category, progress, status } = fields;
+
+  const { rows } = await pool.query(
+    `UPDATE skills
+     SET title = COALESCE($1, title),
+         category = COALESCE($2, category),
+         progress = COALESCE($3, progress),
+         status = COALESCE($4, status)
+     WHERE id = $5
+     RETURNING *`,
+    [title, category, progress, status, id]);
+
+  return rows[0];
+};
+
+
+async function remove(id) {
+  const { rows } = await pool.query(
+    `DELETE FROM skills WHERE id = $1‡`, [id]);
+};
+
+
+
+
+
+
+module.exports = { getAll, create, remove, update };
