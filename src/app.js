@@ -2,7 +2,7 @@
 
 
 const express = require("express");
-const itemsRoutes = require("./routes/items.routes");
+const skillsRoutes = require("./routes/skills.routes");
 const app = express();
 
 app.use(express.json());
@@ -13,7 +13,7 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.use("/items", itemsRoutes);
+app.use("/skills", skillsRoutes);
 
 
 app.use((req, res, next) => {
@@ -29,9 +29,6 @@ app.use((err, req, res, next) => {
         error: err.message || "Internal Server Error"
     });
 });
-
-
-
 
 
 
