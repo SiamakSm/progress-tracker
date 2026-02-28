@@ -34,7 +34,7 @@ async function createSkill(req, res, next) {
 
 async function updateSkill(req, res, next) {
     try {
-        const { id } = req.params;
+        const id = Number(req.params.id);
         const updated = await skillsData.update(id, req.body);
 
         if (!updated)

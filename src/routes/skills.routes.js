@@ -7,8 +7,8 @@ const controller = require("../controllers/skills.controller");
 
 router.get("/", controller.getSkills);
 router.post("/", controller.createSkill);
-router.patch("/", controller.updateSkill);
-router.delete("/", controller.deleteSkill);
+router.patch("/:id", controller.updateSkill);
+router.delete("/:id", controller.deleteSkill);
 
 
 module.exports = router;
